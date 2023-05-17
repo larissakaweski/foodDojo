@@ -10,9 +10,12 @@
 		597E22BF2A124089003106E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597E22BE2A124089003106E4 /* AppDelegate.swift */; };
 		597E22C12A124089003106E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597E22C02A124089003106E4 /* SceneDelegate.swift */; };
 		597E22C32A124089003106E4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597E22C22A124089003106E4 /* ViewController.swift */; };
-		597E22C62A124089003106E4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 597E22C42A124089003106E4 /* Main.storyboard */; };
 		597E22C82A12408D003106E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 597E22C72A12408D003106E4 /* Assets.xcassets */; };
 		597E22CB2A12408D003106E4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 597E22C92A12408D003106E4 /* LaunchScreen.storyboard */; };
+		597E22D42A1250BE003106E4 /* CamadaRede.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597E22D32A1250BE003106E4 /* CamadaRede.swift */; };
+		597E22D72A125172003106E4 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597E22D62A125172003106E4 /* HomeView.swift */; };
+		597E22D92A12A53C003106E4 /* HeaderViewCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 597E22D82A12A53C003106E4 /* HeaderViewCollectionReusableView.swift */; };
+		59F970172A14E95E00D4DF3A /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59F970162A14E95E00D4DF3A /* HomeViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +23,13 @@
 		597E22BE2A124089003106E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		597E22C02A124089003106E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		597E22C22A124089003106E4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		597E22C52A124089003106E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		597E22C72A12408D003106E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		597E22CA2A12408D003106E4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		597E22CC2A12408D003106E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		597E22D32A1250BE003106E4 /* CamadaRede.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CamadaRede.swift; sourceTree = "<group>"; };
+		597E22D62A125172003106E4 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		597E22D82A12A53C003106E4 /* HeaderViewCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewCollectionReusableView.swift; sourceTree = "<group>"; };
+		59F970162A14E95E00D4DF3A /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,34 @@
 		597E22BD2A124089003106E4 /* foodDojo */ = {
 			isa = PBXGroup;
 			children = (
+				597E22D52A12515D003106E4 /* Views */,
+				597E22D22A1250AC003106E4 /* CamadaRede */,
 				597E22BE2A124089003106E4 /* AppDelegate.swift */,
 				597E22C02A124089003106E4 /* SceneDelegate.swift */,
 				597E22C22A124089003106E4 /* ViewController.swift */,
-				597E22C42A124089003106E4 /* Main.storyboard */,
 				597E22C72A12408D003106E4 /* Assets.xcassets */,
 				597E22C92A12408D003106E4 /* LaunchScreen.storyboard */,
 				597E22CC2A12408D003106E4 /* Info.plist */,
 			);
 			path = foodDojo;
+			sourceTree = "<group>";
+		};
+		597E22D22A1250AC003106E4 /* CamadaRede */ = {
+			isa = PBXGroup;
+			children = (
+				597E22D32A1250BE003106E4 /* CamadaRede.swift */,
+			);
+			path = CamadaRede;
+			sourceTree = "<group>";
+		};
+		597E22D52A12515D003106E4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				597E22D62A125172003106E4 /* HomeView.swift */,
+				597E22D82A12A53C003106E4 /* HeaderViewCollectionReusableView.swift */,
+				59F970162A14E95E00D4DF3A /* HomeViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +152,6 @@
 			files = (
 				597E22CB2A12408D003106E4 /* LaunchScreen.storyboard in Resources */,
 				597E22C82A12408D003106E4 /* Assets.xcassets in Resources */,
-				597E22C62A124089003106E4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +164,10 @@
 			files = (
 				597E22C32A124089003106E4 /* ViewController.swift in Sources */,
 				597E22BF2A124089003106E4 /* AppDelegate.swift in Sources */,
+				597E22D42A1250BE003106E4 /* CamadaRede.swift in Sources */,
+				597E22D92A12A53C003106E4 /* HeaderViewCollectionReusableView.swift in Sources */,
+				597E22D72A125172003106E4 /* HomeView.swift in Sources */,
+				59F970172A14E95E00D4DF3A /* HomeViewCell.swift in Sources */,
 				597E22C12A124089003106E4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,14 +175,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		597E22C42A124089003106E4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				597E22C52A124089003106E4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		597E22C92A12408D003106E4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,7 +312,6 @@
 				INFOPLIST_FILE = foodDojo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +339,6 @@
 				INFOPLIST_FILE = foodDojo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
