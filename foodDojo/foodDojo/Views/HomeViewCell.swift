@@ -20,7 +20,6 @@ class HomeViewCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .brown
-        label.text = "oi"
         return label
     }()
     
@@ -44,12 +43,16 @@ class HomeViewCell: UICollectionViewCell {
     
     private func addConstraints() {
         let labelConstraints = [
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 16),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor),
             titleLabel.leftAnchor.constraint(equalTo: leftAnchor),
             titleLabel.rightAnchor.constraint(equalTo: rightAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ]
         
         NSLayoutConstraint.activate(labelConstraints)
+    }
+    
+    public func updateView(_ entity: Foods) {
+        titleLabel.text = entity.name
     }
 }

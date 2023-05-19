@@ -9,6 +9,8 @@ import UIKit
 
 public class HomeView: UIView {
     
+    private var viewEntity: [Foods]?
+    
     private lazy var contentView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -29,7 +31,6 @@ public class HomeView: UIView {
         stack.distribution = .fill
         stack.spacing = 12
         stack.axis = .vertical
-        stack.backgroundColor = .yellow
         return stack
     }()
 
@@ -44,30 +45,34 @@ public class HomeView: UIView {
         collection.register(HomeViewCell.self, forCellWithReuseIdentifier: HomeViewCell.identifier)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.dataSource = self
-        collection.backgroundColor = .purple
         collection.collectionViewLayout = layout
         return collection
     }()
     
     private lazy var layout: UICollectionViewCompositionalLayout = {
         //items
-        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(2/3),
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
                                               heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         
-        let verticalStackItem = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(0.5)))
-        //groups
-        let verticalStackGroup = NSCollectionLayoutGroup.vertical(layoutSize: NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(0.5)),
-                                                                  repeatingSubitem: verticalStackItem,
-                                                                  count: 2)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 1, leading: 1, bottom: 1, trailing: 1)
+        
+//        let verticalStackItem = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
+//            widthDimension: .fractionalWidth(0.5),
+//            heightDimension: .fractionalHeight(0.2)))
+//        //groups
+//        let verticalStackGroup = NSCollectionLayoutGroup.vertical(layoutSize: NSCollectionLayoutSize(
+//            widthDimension: .fractionalWidth(0.5),
+//            heightDimension: .fractionalHeight(0.5)),
+//                                                                  repeatingSubitem: verticalStackItem,
+//                                                                  count: 2)
+        
         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                               heightDimension: .fractionalWidth(3/5))
+                                               heightDimension: .fractionalHeight(0.3))
+        
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
-                                                       subitems: [item, verticalStackGroup])
+                                                       subitem: item,
+                                                       count: 2)
         //section
         let section = NSCollectionLayoutSection(group: group)
         
@@ -129,9 +134,11 @@ public class HomeView: UIView {
     }
     
     public func updateView(entity: [Foods]) {
-        
+        DispatchQueue.main.async {
+            self.viewEntity = entity
+            self.collectionView.reloadData()
+        }
     }
-
 }
 
 extension HomeView: UICollectionViewDataSource {
@@ -141,21 +148,12 @@ extension HomeView: UICollectionViewDataSource {
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeViewCell.identifier, for: indexPath)
-        cell.backgroundColor = .red
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeViewCell.identifier, for: indexPath) as! HomeViewCell
+        if let viewEntity = viewEntity {
+            cell.updateView(viewEntity[indexPath.row])
+        }
         return cell
     }
-    
-//    public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//
-//        guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: "header", withReuseIdentifier: "HeaderView", for: indexPath) as? HeaderView else {
-//            return UICollectionReusableView()
-//        }
-//
-//        view.title = indexPath.section == 1 ? "Recently Viwed" : "Browse by category"
-//        return view
-//    }
-    
 }
 
 extension HomeView: HomeViewControllerProtocol {
